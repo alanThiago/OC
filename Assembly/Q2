@@ -1,0 +1,26 @@
+		;Considerei	que a funçao recebe como parametro um endeco de momoria com 10 espacos
+		;e		coloca nele a sequencia de fibonacci. Esse endereco esta em R0
+		
+		MOV		R0, #0X100
+		
+QUESTAO2
+		STMFD	SP!, {R4}
+		MOV		R1, #0
+		MOV		R2, #1
+		STR		R1, [R0]
+		STR		R2, [R0, #4]
+		
+		MOV		R4, #8
+WHILE
+		CMP		R4, #40
+		BHS		DONE
+		
+		ADD		R3, R1, R2
+		STR		R3, [R0, R4]
+		MOV		R1, R2
+		MOV		R2, R3
+		ADD		R4, R4, #4
+		B		WHILE
+		
+DONE
+		LDMFD	SP!, {R4}
