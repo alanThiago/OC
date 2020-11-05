@@ -1,7 +1,10 @@
 		;Considerei	que a funçao recebe como parametro um endeco de momoria com 10 espacos
 		;e		coloca nele a sequencia de fibonacci. Esse endereco esta em R0
 		
+TESTE ;NAO eh uma MAIN. Apenas inicializa os parametros da funcao para testar o codigo
 		MOV		R0, #0X100
+		BL		QUESTAO2
+		END
 		
 QUESTAO2
 		STMFD	SP!, {R4}
@@ -24,3 +27,4 @@ WHILE
 		
 DONE
 		LDMFD	SP!, {R4}
+		MOV		PC, LR

@@ -1,16 +1,15 @@
 		;Considerei	que o endereço do vetor esta em R0 e o tamanho dele em R1
 		
-		;O		visUAL apontou erro quando eu cliquei em Execute. Porem, funcionou corretamente com
-		;		Step	Forwards no mesmo caso de teste. Por isso, use Step Forwards para testar o codigo
-		
 		;		A funcao percorre o vetor i vezes contando a quantidade de ocorrencias de cada elemento
-		;		e para de percorrer quando encontra um elemento com uma unica ocorrencia.
-		
-		
-		;		Esse e um caso de teste gerado para testar a funcao
+		;		para de percorrer quando encontra um elemento com uma unica ocorrencia.
+
+
+TESTE ;NAO eh uma MAIN. Apenas inicializa os parametros da funcao para testar o codigo
 ARRAY	DCD		1, 9, 1, 2, 8, 7, 7, 8, 2
 		LDR		R0, =ARRAY
 		MOV		R1, #36
+		BL		QUESTAO1
+		END
 		
 		
 		;		A funcao comeca aqui

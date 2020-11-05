@@ -1,16 +1,15 @@
 			;Considerei	que o vetor esta em R0, o pivot em R1 e a quantidade de elementos - 1 em R2
-			;Essa	funcao faz a busca binaria e coloca o offset byte em R0 caso o pivot esteja no vetor, se nao
-			;		coloca -1 em R0
+			;Essa	funcao faz a busca binaria e coloca o offset byte em R0 caso o pivot esteja no vetor,
+			;caso	contrario, coloca -1
 			
-			;O		visUAL apontou erro quando eu cliquei em Execute. Porem, funcionou corretamente com
-			;		Step	Forwards no mesmo caso de teste. Por isso, use Step Forwards para testar o codigo
-
-			;Esse eh um caso de teste gerado para testar a funcao
+TESTE ;NAO eh uma MAIN. Apenas inicializa os parametros da funcao para testar o codigo
 ARRAY		DCD		1,1,2,3,5,9,10,10
 			LDR		R0, =ARRAY
 			MOV		R1, #5
 			MOV		R2, #7
-			
+			BL		QUESTAO3
+			END
+
 QUESTAO3
 			STMFD	SP!, {R4, R5}
 			MOV		R3, #0
