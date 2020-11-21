@@ -1,8 +1,8 @@
-		;Considerei	que a funçao recebe como parametro um endeco de momoria com 10 espacos
-		;e		coloca nele a sequencia de fibonacci. Esse endereco esta em R0
+		;Considerei	que a funçao recebe como parametro um endeco de memoria, contendo 40 bytes, em R0
+		;Essa funçao coloca os 10 primeiros elementos da sequencia de fibinacci em R0
 		
 TESTE ;NAO eh uma MAIN. Apenas inicializa os parametros da funcao para testar o codigo
-		MOV		R0, #0X100
+		MOV		R0, #0X100 ;vetor com 10 elementos
 		BL		QUESTAO2
 		END
 		

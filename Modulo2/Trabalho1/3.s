@@ -1,23 +1,24 @@
-			;Considerei	que o vetor esta em R0, o pivot em R1 e a quantidade de elementos - 1 em R2
-			;Essa	funcao faz a busca binaria e coloca o offset byte em R0 caso o pivot esteja no vetor,
-			;caso	contrario, coloca -1
+			;Considerei	que o vetor esta em R0, o pivot em R1 e a quantidade de elementos em R2.
+			;Se		a chave estiver no vetor, retorna seu valor. Caso contrario, retorna -1
 			
 TESTE ;NAO eh uma MAIN. Apenas inicializa os parametros da funcao para testar o codigo
-ARRAY		DCD		1,1,2,3,5,9,10,10
-			LDR		R0, =ARRAY
-			MOV		R1, #5
-			MOV		R2, #7
+ARRAY		DCD		1,1,2,3,5,9,10,11,31
+			LDR		R0, =ARRAY ; *v
+			MOV		R1, #11 ; chave
+			MOV		R2, #9 ; quantidade de elementos
 			BL		QUESTAO3
 			END
-
+			
+			;		int  buscaBinaria(int *v, int chave, int n)
 QUESTAO3
 			STMFD	SP!, {R4, R5}
-			MOV		R3, #0
+			SUB		R2, R2, #1 ;subtrai 1 da quantidade de elementos para facilitar na implementacao
+			MOV		R3, #0 ;esq = 0
 			MOV		R4, R2
 			LSR		R4, R4, #1
 			LSL		R4, R4, #2
 			
-WHILE
+WHILE ; while(esq <= dir)
 			CMP		R3, R2
 			BGT		NAOENCONTROU
 			
@@ -44,9 +45,9 @@ MENOR
 			B		WHILE
 			
 NAOENCONTROU
-			MOV		R4, #-1
+			MOV		R1, #-1
 			
 DONE
-			MOV		R0, R4
+			MOV		R0, R1
 			LDMFD	SP!, {R4, R5}
 			MOV		PC, LR
